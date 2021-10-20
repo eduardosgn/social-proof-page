@@ -1,0 +1,248 @@
+// Variáveis Cores Primárias
+$primaryColor: hsl(300, 43%, 22%);
+$secondaryColor: hsl(333, 80%, 67%);
+
+// Variáveis Cores Neutras
+$darkGrey: hsl(303, 10%, 53%);
+$lightGrey: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+// Variável Fonte
+$primaryFont: 'Spartan', sans-serif;
+
+// Mixin Flexbox
+@mixin flexBox($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+};
+
+// Global Resets
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(./images/bg-pattern-top-desktop.svg) no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    @include flexBox(center, center);
+}
+
+main {
+    width: 75%;
+    height: 70vh;
+    margin: 0 auto;
+}
+
+.header__container {
+    @include flexBox(center, space-between);
+}
+
+.header__text__container {
+    width: 36%;
+
+    h1 {
+        color: $primaryColor;
+        font-family: $primaryFont;
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: $darkGrey;
+        font-family: $primaryFont;
+        line-height: 1.5;
+    }
+}
+
+.header__rating__container {
+    width: 48%;
+
+    .rating__card {
+        width: 70%;
+        background-color: $lightGrey;
+        padding: 1rem 3rem;
+        border-radius: 10px;
+        margin: .8rem 0;
+        transition: all .4s ease-in-out;
+
+        ul {
+            @include flexBox(center, center);
+            list-style: none;
+            margin-right: 1rem;
+            transition: all .4s ease-in-out;
+
+            li {
+                margin: 0 .3rem;
+                transition: all .4s ease-in-out;
+
+                img {
+                    transition: all .4s ease-in-out;
+                }
+
+                p {
+                    margin-left: 1rem;
+                    font-family: $primaryFont;
+                    font-size: .8rem;
+                    font-weight: 700;
+                    color: $primaryColor;
+                    transition: all .4s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .second--card {
+        margin-left: 3rem;
+    }
+
+    .third--card {
+        margin-left: 6rem;
+    }
+}
+
+.testimonials__container {
+    margin-top: 1rem;
+    @include flexBox(center, space-between);
+
+    .testimonials__card {
+        background-color: $primaryColor;
+        padding: 3rem;
+        border-radius: 10px;
+        width: 25%;
+
+        .testimonials__card--person {
+            @include flexBox(center, flex-start);
+
+            img {
+                border-radius: 50px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .testimonials__card--person--name {
+                margin-left: 1rem;
+
+                h3 {
+                    font-family: $primaryFont;
+                    font-size: 1rem;
+                    color: $white;
+                    margin-bottom: .3rem;
+                }
+
+                p {
+                    font-family: $primaryFont;
+                    color: $secondaryColor;
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        .testimonials__card--text {
+            color: $white;
+            font-family: $primaryFont;
+            font-size: .8rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+    }
+
+    .irene--card {
+        margin-top: 3rem;
+    }
+
+    .anne--card {
+        margin-top: 6rem;
+    }
+}
+
+.attribution {
+    margin-top: 3rem;
+    text-align: center;
+    font-family: $primaryFont;
+    font-size: .7rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background: url(./images/bg-pattern-top-mobile.svg) no-repeat;
+        background-size: cover;
+    }
+
+    main {
+        width: 95%;
+        height: 100vh;
+    }
+
+    .header__container {
+        @include flexBox(center, center);
+        flex-direction: column;
+    }
+
+    .header__text__container {
+        width: 100%;
+    
+        h1 {
+            margin-top: 4rem;
+            text-align: center;
+        }
+    
+        p {
+            margin: 1rem 0;
+            text-align: center;
+        }
+    }
+
+    .header__rating__container {
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        .rating__card {
+            width: 100%;
+            padding: 1rem 2rem;
+
+            ul {
+                width: 100%;
+            }
+        }
+
+        .second--card {
+            margin-left: 0;
+        }
+    
+        .third--card {
+            margin-left: 0;
+        }
+    }
+
+    .testimonials__container {
+        @include flexBox(center, center);
+        flex-direction: column;
+
+        .testimonials__card {
+            width: 100%;
+        }
+
+        .irene--card {
+            margin-top: 1rem;
+        }
+    
+        .anne--card {
+            margin-top: 1rem;
+        }
+    }
+
+    .attribution {
+        margin-top: 0;
+        padding: 3rem 0;
+    }
+}
